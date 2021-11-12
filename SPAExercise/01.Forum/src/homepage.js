@@ -18,12 +18,12 @@ const postContainer = document.querySelector('.topic-container');
 createBtn.addEventListener('click', createPost);
 cancelBtn.addEventListener('click', () => form.reset());
 postContainer.addEventListener('click', (event) => {
-    if (event.target.tagName == 'H2'){
+    if (event.target.tagName == 'H2') {
         let id = event.target.parentNode.parentNode.parentNode.id;
         setId(id);
-        showPost(); 
+        showPost();
     }
-   
+
 })
 section.remove();
 
@@ -49,7 +49,7 @@ async function createPost(event) {
     try {
         const response = await fetch('http://localhost:3030/jsonstore/collections/myboard/posts', {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json'},
+            headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(data)
         });
         if (response.ok !== true) {
@@ -63,6 +63,7 @@ async function createPost(event) {
 }
 
 async function loadPosts() {
+    postContainer.replaceChildren();
     const data = await fetchData();
     for (const post of Object.values(data)) {
         postContainer.appendChild(createPostCard(post))
