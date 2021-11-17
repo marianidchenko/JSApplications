@@ -5,6 +5,8 @@ const { expect } = require('chai');
 //Keep in mind the test can be ran once as it makes permanent changes 
 //Last 2 tests will fail if repeated
 //Restart the server if repeat is needed
+//add headless if desired tobrowser = await chromium.launch;
+
 
 const url = ('http://localhost:5500')
 
