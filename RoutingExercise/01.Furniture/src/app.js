@@ -14,6 +14,7 @@ const root = document.querySelector('div.container');
 
 page(decorateContext)
 page('/', catalogPage);
+page('/index.html', catalogPage);
 page('/details/:id', detailsPage);
 page('/create', createPage);
 page('/edit/:id', editPage);

@@ -27,7 +27,7 @@ async function request(fullUrl, options) {
 function createOptions(method = 'get', data) {
     const options = {
         method,
-        headers: {}
+        headers: {},
     };
 
     if (data != undefined) {
@@ -59,7 +59,7 @@ async function del(url) {
 }
 
 async function login(email, password) {
-    const response = await request('/users/login', createOptions('post', {email, password}));
+    const response = await request(host + '/users/login', createOptions('post', {email, password}));
     const userData = {
         email: response.email,
         id: response._id,
@@ -69,7 +69,7 @@ async function login(email, password) {
 }
 
 async function register(email, password) {
-    const response = await request('/users/register', createOptions('post', {email, password}));
+    const response = await request(host + '/users/register', createOptions('post', {email, password}));
     const userData = {
         email: response.email,
         id: response._id,
@@ -79,7 +79,7 @@ async function register(email, password) {
 }
 
 async function logout() {
-    await request('/users/logout', createOptions());
+    await request(host + '/users/logout', createOptions());
     clearUserData();
 }
 
