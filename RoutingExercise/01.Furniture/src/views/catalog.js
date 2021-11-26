@@ -27,7 +27,7 @@ const itemTemplate = (item) =>
                         <p>Price: <span>${item.price} $</span></p>
                     </footer>
                     <div>
-                        <a href="'/details/${item._id}'" class="btn btn-info">Details</a>
+                        <a href=${`/details/${item._id}`} class="btn btn-info">Details</a>
                     </div>
                 </div>
             </div>
