@@ -9,11 +9,10 @@ async function request(url, options) {
             const error = await response.json();
             throw new Error(error.message);
         }
-
-        if (response.status == 204) {
+        try {
+            return await response.json();
+        } catch(err) {
             return response;
-        } else {
-            return response.json();
         }
 
     } catch (err) {

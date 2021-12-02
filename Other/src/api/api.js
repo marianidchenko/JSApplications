@@ -1,17 +1,18 @@
 import { clearUserData, getUserData, setUserData } from "../util.js";
 
+const host = 'http://localhost:3030';
+
 async function request(url, options) {
-    const response = await fetch(url, options);
+    const response = await fetch(host + url, options);
     try {
         if (response.ok == false) {
             const error = await response.json();
             throw new Error(error.message);
         }
-
-        if (response.status == 204) {
+        try {
+            return await response.json();
+        } catch(err) {
             return response;
-        } else {
-            return response.json();
         }
 
     } catch (err) {
@@ -26,7 +27,7 @@ function createOptions(method = 'get', data) {
         headers: {},
     };
 
-    if ( data != undefined ) {
+    if (data != undefined) {
         options.headers['Content-Type'] = 'application/json';
         options.body = JSON.stringify(data)
     }
