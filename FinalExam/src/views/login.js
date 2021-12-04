@@ -16,7 +16,7 @@ const loginTemplate = (onSubmit) => html`
             <button type="submit" class="login">Login</button>
 
             <p class="field">
-                <span>If you don't have profile click <a href="#">here</a></span>
+                <span>If you don't have profile click <a href="/register">here</a></span>
             </p>
         </fieldset>
     </form>
