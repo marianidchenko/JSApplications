@@ -48,6 +48,7 @@ const resultTemplate = (result) => html`
 
 
 export async function searchPage(ctx) {
+    searchInput = ''
     userData = getUserData();
 
     async function onSearch() {
